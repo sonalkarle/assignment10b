@@ -1,22 +1,26 @@
-<<<<<<< HEAD
-echo "Wlecome to check use case for coin"
-
-=======
 #!/bin/bash -x
+##Showing how much time head and tails win the match
+##variables
+noOfHeads=0
+noOfTails=0
 
 echo "Well To Flip Coin Simulator"
-
+##taking input from user
 read -p "Do you want to flip a coin (y/n) : " permission
-
-if [ $permission == "y" ]
-then
+##computation
+while [ $permission == "y" ]
+do
 	flipResult=$(( RANDOM%2 ))
 	if [ $flipResult -eq 0 ]
 	then
 		echo "Heads"
+		noOfHeads=$(( $noOfHeads + 1 ))
 	else
 		echo "Tails"
+		noOfTails=$(( $noOfTails + 1 ))
 	fi
-fi
-
->>>>>>> 1_CheckHeadTails_UC1
+	read -p "Do you want to flip a coin again (y/n) : " permission
+done
+##Showing result
+echo "Total number of Heads : " $noOfHeads
+echo "Total number of Tails : " $noOfTails
