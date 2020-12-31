@@ -1,21 +1,12 @@
-#!/bin/bash -x
-##Showing how much time head and tails win the match
-##variables
+#!/usr/bin/bash -x
+##Check who will win the match head or tails
+##Variables
 noOfHeads=0
 noOfTails=0
 
-noOfHeads=0
-noOfTails=0
-
-echo "Well To Flip Coin Simulator"
-##taking input from user
-read -p "Do you want to flip a coin (y/n) : " permission
-<<<<<<< HEAD
-
-=======
-##computation
->>>>>>> 2_ShowNoOftimeHeadTails_UC2
-while [ $permission == "y" ]
+echo "Welcome To Flip Coin Simulator"
+##Computation
+while [[ $noOfHeads -ne 21 && $noOfTails -ne 21 ]]
 do
 	flipResult=$(( RANDOM%2 ))
 	if [ $flipResult -eq 0 ]
@@ -26,12 +17,14 @@ do
 		echo "Tails"
 		noOfTails=$(( $noOfTails + 1 ))
 	fi
-	read -p "Do you want to flip a coin again (y/n) : " permission
 done
-<<<<<<< HEAD
-
-=======
-##Showing result
->>>>>>> 2_ShowNoOftimeHeadTails_UC2
-echo "Total number of Heads : " $noOfHeads
-echo "Total number of Tails : " $noOfTails
+##Computation
+if [ $noOfHeads -eq 21 ]
+then
+	winMargin=$(( $noOfHeads - $noOfTails ))
+	echo "Heads won by $winMargin over Tails"
+else
+	
+	winMargin=$(( $noOfTails - $noOfHeads ))
+	echo "Tails won by $winMargin over Heads"
+fi
